@@ -13,34 +13,26 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Umur</th>
+            <th scope="col">Alamat</th>
+            <th scope="col">Nomor Telepon</th>
           </tr>
         </thead>
         <tbody>
+          @foreach ($karyawans as $k)
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>{{$k->Nama}}</td>
+            <td>{{$k->Umur}}</td>
+            <td>{{$k->Alamat}}</td>
+            <td>{{$k->NomorTelepon}}</td>
+            <td><a href="/update/{{$k->id}}" class="btn btn-secondary">Update</a></td>
+            <td><a href="/delete/{{$k->id}}"  class="btn btn-danger">Delete</a></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          @endforeach
+
         </tbody>
       </table>
-
 </div>
 <footer>
         谢谢! Thankyou! Terimakasih!

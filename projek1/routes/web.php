@@ -21,6 +21,31 @@ Route::post('/create-karyawan', [KaryawanController::class, 'createKaryawan']);
 
 
 Route::get(
-    '/delete',
-    [KaryawanController::class, 'deleteKaryawan']
+    '/edit',
+    [KaryawanController::class, 'editKaryawan']
+
 );
+
+Route::get(
+    '/list-karyawan', [KaryawanController::class, 'listKaryawan']
+);
+
+Route::get(
+    '/delete/{id}', [KaryawanController::class, 'delete']
+);
+
+Route::get(
+    '/update/{id}',
+    [KaryawanController::class, 'updateKaryawan']
+);
+
+Route::patch(
+    '/update/{id}',
+    [KaryawanController::class, 'update']
+);
+
+
+
+
+
+

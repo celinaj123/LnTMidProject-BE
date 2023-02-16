@@ -5,12 +5,17 @@
     padding: 0;
 }
 
+body{
+    min-height: 100vh;
+}
+
 #hero {
-    height: 95vh;
+    /* height: 95vh; */
+    min-height: 100vh;
     background-image: url(https://static.vecteezy.com/system/resources/previews/000/394/125/original/home-office-workspace-illustration-vector.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     font-family: "Poppins", sans-serif;
@@ -18,21 +23,21 @@
 
 .box {
     padding: 40px 0px;
-  
+
     background-color: rgba(117, 118, 117, 0.2);
     display: flex;
     align-items: center;
     text-align: center;
-    margin: 40px auto;
+    margin: 80px auto;
     flex-direction: column;
     border-radius: 10px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.tombol{
+.tombol {
     display: flex;
     justify-content: center;
     margin: 15px;
@@ -45,22 +50,22 @@ a{
     border-width: 0.5;
 }
 
-p{
+p {
     margin: 10px;
     font-weight: 500;
 }
 
-.tombol:hover{
+.tombol:hover {
     background-color: rgba(0, 40, 56, 0.9);
-     color: rgb(192, 216, 238);
+    color: rgb(192, 216, 238);
     transform: scale(1.1);
 }
 
-footer{
+footer {
     background-color: rgba(0, 40, 56, 0.9);
     color: rgb(238, 244, 248);
     text-align: center;
-     font-family: "Poppins", sans-serif;
-     font-size: 16px;
-     padding: 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    padding: 8px;
 }

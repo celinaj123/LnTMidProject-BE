@@ -22,9 +22,14 @@ class KaryawanController extends Controller
         return view('createKaryawan');
     }
 
-    public function delete(){
+    public function editKaryawan(){
         $karyawans = Karyawan::all();
-        return view('deleteKaryawan', compact('karyawans'));
+        return view('editKaryawan', compact('karyawans'));
+    }
+
+    public function delete($id){
+        Karyawan::destroy($id);
+        return back();
     }
 
     /**
@@ -40,7 +45,7 @@ class KaryawanController extends Controller
         //     'alamat' => ['required'],
         //     'nomortelepon' => ['required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10'],
         // ]);
-        
+
         Karyawan::create([
             'nama' => $request->nama,
             'umur' => $request->umur,
@@ -67,42 +72,34 @@ class KaryawanController extends Controller
      * @param  \App\Models\karyawan  $karyawan
      * @return \Illuminate\Http\Response
      */
-    public function show(karyawan $karyawan)
+    public function listKaryawan(karyawan $karyawan)
     {
-        //
+        $karyawans = karyawan::all();
+        return view('showKaryawan', compact('karyawans'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\karyawan  $karyawan
-     * @return \Illuminate\Http\Response
-     */
+    public function updateKaryawan($id)
+    {
+        $karyawan = karyawan::findOrFail($id);
+        return view('updateKaryawan', compact('karyawan'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $karyawan = karyawan::findOrFail($id);
+        // dd($karyawan);
+        $karyawan->Nama = $request->nama;
+        $karyawan->Umur = $request->umur;
+        $karyawan->Alamat = $request->alamat;
+        $karyawan->NomorTelepon = $request->nomortelepon;
+        $karyawan->save();
+        return view('index');
+    }
+
+
     public function edit(karyawan $karyawan)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\karyawan  $karyawan
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, karyawan $karyawan)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\karyawan  $karyawan
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(karyawan $karyawan)
-    {
-        //
-    }
 }
